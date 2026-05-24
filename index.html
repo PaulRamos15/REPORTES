@@ -3,84 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carátula - Análisis de Papa</title>
+    <title>Análisis Espacial de Papa - Perú</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+
         body {
             margin: 0;
-            padding: 0;
+            font-family: 'Inter', system_ui, sans-serif;
+            background: #f8f9fa;
+            color: #222;
+        }
+
+        .cover {
             height: 100vh;
+            background: linear-gradient(135deg, #1a3c6e 0%, #2c5aa0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1a3c6e, #2c5aa0);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
-        }
-        
-        .cover {
             text-align: center;
-            padding: 60px 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .cover-content {
             max-width: 800px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 40px;
         }
-        
-        .title {
-            font-size: 2.8rem;
-            font-weight: 700;
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
             margin-bottom: 15px;
-            line-height: 1.2;
+            line-height: 1.1;
         }
-        
-        .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
+
+        .cover p {
+            font-size: 1.3rem;
             opacity: 0.95;
+            margin-bottom: 40px;
         }
-        
-        .info {
-            margin-top: 50px;
-            font-size: 1.1rem;
-            opacity: 0.9;
+
+        .section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
         }
-        
-        .highlight {
-            background: linear-gradient(90deg, #f4a261, #e76f51);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 600;
+
+        .map-container {
+            margin-top: 30px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid #ddd;
         }
-        
-        .footer {
-            margin-top: 60px;
-            font-size: 0.95rem;
-            opacity: 0.8;
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            display: block;
+        }
+
+        h2 {
+            color: #1a3c6e;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
+    <!-- CARÁTULA / PORTADA -->
     <div class="cover">
-        <h1 class="title">
-            Análisis Espacial del Cultivo de Papa<br>
-            en el Perú
-        </h1>
-        
-        <h2 class="subtitle">
-            Clasificación por <span class="highlight">Pisos Altitudinales (Jenks)</span><br>
-            y Regiones Naturales
-        </h2>
-
-        <div class="info">
-            <p><strong>Fuente de datos:</strong> Encuesta Nacional Agraria (ENA) 2014–2024</p>
-            <p><strong>Metodología:</strong> Jenks Natural Breaks + Análisis Geoespacial</p>
+        <div class="cover-content">
+            <h1>Análisis Espacial del Cultivo de Papa</h1>
+            <p>Clasificación por Pisos Altitudinales (Jenks)<br>y Regiones Naturales del Perú</p>
+            
+            <div style="margin-top: 60px; font-size: 1.1rem; opacity: 0.9;">
+                <p><strong>Encuesta Nacional Agraria (ENA) 2014-2024</strong></p>
+            </div>
         </div>
+    </div>
 
-        <div class="footer">
-            <p>Análisis realizado con Python + Folium + Jenks</p>
+    <!-- CONTENIDO -->
+    <div class="section">
+        <h2>Mapa Interactivo</h2>
+        <p>Explora la distribución del cultivo de papa según pisos altitudinales y regiones naturales. 
+        Puedes activar o desactivar las capas de <strong>Costa</strong>, <strong>Sierra</strong> y <strong>Selva</strong>.</p>
+
+        <!-- MAPA -->
+        <div class="map-container">
+            <iframe src="mapa_papa_jenks_regiones.html"></iframe>
         </div>
     </div>
 
